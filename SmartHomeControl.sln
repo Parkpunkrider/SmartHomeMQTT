@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30907.101
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartHomeControl", "SmartHomeControl\SmartHomeControl.csproj", "{D6A8EB72-AAE7-481D-A0D2-BAA71BC6BF4C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharedModels", "..\SharedModels\SharedModels.csproj", "{B1B60B00-7F4E-4780-A651-AAD87A8F8823}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D6A8EB72-AAE7-481D-A0D2-BAA71BC6BF4C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D6A8EB72-AAE7-481D-A0D2-BAA71BC6BF4C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D6A8EB72-AAE7-481D-A0D2-BAA71BC6BF4C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D6A8EB72-AAE7-481D-A0D2-BAA71BC6BF4C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B1B60B00-7F4E-4780-A651-AAD87A8F8823}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B1B60B00-7F4E-4780-A651-AAD87A8F8823}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B1B60B00-7F4E-4780-A651-AAD87A8F8823}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B1B60B00-7F4E-4780-A651-AAD87A8F8823}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {36A0F0F2-A976-4C85-BFCA-F86D2F56B1C5}
+	EndGlobalSection
+EndGlobal
