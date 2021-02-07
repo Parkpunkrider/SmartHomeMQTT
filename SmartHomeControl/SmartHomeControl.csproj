@@ -15,4 +15,8 @@
     <ProjectReference Include="..\..\SharedModels\SharedModels.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Tools\" />
+  </ItemGroup>
+
 </Project>

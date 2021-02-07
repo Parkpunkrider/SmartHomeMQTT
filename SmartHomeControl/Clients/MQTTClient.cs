@@ -10,18 +10,20 @@ namespace SmartHomeControl.Clients
 {
     public class MQTTClient
     {
-        private string brokerAdress = "https://test.mosquitto.org:8883";
+        private string brokerAdress = "test.mosquitto.org";     //Ignore Warnings fields get initialized with object
         private string room;
         private MqttClient client;
-
+        
+        
         public MQTTClient(string room)
         {
             this.room = room;
+            client = new MqttClient(brokerAdress);
         }
 
         public string Publish(string topic)
         {
-            if (topic != "")
+            if (!topic.Equals(""))
             {
                 // whole topic
                 string Topic = "/"+ room + "/" + topic;
@@ -38,7 +40,7 @@ namespace SmartHomeControl.Clients
 
         public string Subscribe(string topic)
         {
-            if (topic != "")
+            if (!topic.Equals(""))
             {
                 // whole topic
                 string Topic = "/" + room + "/" + topic;
@@ -55,7 +57,7 @@ namespace SmartHomeControl.Clients
 
         public string Unsubscribe(string topic)
         {
-            if (topic != "")
+            if (!topic.Equals(""))
             {
                 // whole topic
                 string Topic = "/" + room + "/" + topic;
