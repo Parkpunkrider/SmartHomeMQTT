@@ -1,9 +1,25 @@
 ﻿@page "/apartment" 
 <h3>Ferienwohnung</h3>
 <div class="form-check form-switch">
-    <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
+    <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" @bind-value="heater">
     <label class="form-check-label" for="flexSwitchCheckDefault">Heizlüfter Bad</label>
 </div>
-@code {
+<div class="form-check form-switch">
+    <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" @bind-value="readinglight">
+    <label class="form-check-label" for="flexSwitchCheckDefault">Leselampe</label>
+</div>
 
+@code {
+    MQTTClient client = new MQTTClient("LivingRoom");
+    bool heater;
+    bool readinglight;
+
+    private void UpdateBathroom()
+    {
+        client.Publish("heater", heater.ToString());
+    }
+    private void UpdateLivinRoom()
+    {
+        client.Publish("readingLight", readinglight.ToString());
+    }
 }

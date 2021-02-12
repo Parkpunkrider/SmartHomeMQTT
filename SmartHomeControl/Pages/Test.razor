@@ -1,0 +1,13 @@
+﻿@page "/test"
+<h3>Test</h3>
+
+@code {
+    MQTTClient clientApartment = new MQTTClient("apartment");
+    MQTTClient clientLivingRoom = new MQTTClient("livingroom");
+
+    protected override async Task OnInitializedAsync()
+    {
+        clientApartment.Subscribe("");
+        clientLivingRoom.Subscribe("");
+    }
+}

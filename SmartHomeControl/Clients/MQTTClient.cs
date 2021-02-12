@@ -21,15 +21,14 @@ namespace SmartHomeControl.Clients
             client = new MqttClient(brokerAdress);
         }
 
-        public string Publish(string topic)
+        public string Publish(string topic, string message)
         {
             if (!topic.Equals(""))
             {
                 // whole topic
-                string Topic = "/"+ room + "/" + topic;
-
+                string route = "/" + room + "/" + topic;
                 // publish a message with QoS 2
-                client.Publish(Topic, Encoding.UTF8.GetBytes(topic), MqttMsgBase.QOS_LEVEL_EXACTLY_ONCE, true);
+                client.Publish(route, Encoding.UTF8.GetBytes(message), MqttMsgBase.QOS_LEVEL_EXACTLY_ONCE, true);
                 return "Published to " + topic;
             }
             else
@@ -40,19 +39,14 @@ namespace SmartHomeControl.Clients
 
         public string Subscribe(string topic)
         {
-            if (!topic.Equals(""))
-            {
+                string route;
                 // whole topic
-                string Topic = "/" + room + "/" + topic;
+                if (topic.Length > 0) route = "/" + room + "/" + topic;
+                else route = "/" + room + "/*";
 
                 // subscribe to the topic with QoS 2
-                client.Subscribe(new string[] { Topic }, new byte[] { 2 });   // we need arrays as parameters because we can subscribe to different topics with one call
+                client.Subscribe(new string[] { route }, new byte[] { 2 });   // we need arrays as parameters because we can subscribe to different topics with one call
                 return "Subscribed to " + topic;
-            }
-            else
-            {
-                return "Entered topic invalid";
-            }
         }
 
         public string Unsubscribe(string topic)

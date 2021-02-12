@@ -1,14 +1,25 @@
 ﻿@page "/livingroom"
 <h3>Wohnzimmer</h3>
 <div class="form-check form-switch">
-    <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
+    <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" @bind-value="ceilingLight">
     <label class="form-check-label" for="flexSwitchCheckDefault">Deckenlampe</label>
 </div>
 <div class="form-check form-switch">
-    <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
+    <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" @bind-value="diningRoomLight">
     <label class="form-check-label" for="flexSwitchCheckDefault">Esszimmerlampe</label>
 </div>
 
 @code {
+    MQTTClient client = new MQTTClient("LivingRoom");
+    bool ceilingLight;
+    bool diningRoomLight;
 
+    private void UpdateCeiling()
+    {
+        client.Publish("ceilinglight", ceilingLight.ToString());
+    }
+    private void UpdateDiningRoom()
+    {
+        client.Publish("diningroomlight", diningRoomLight.ToString());
+    }
 }
